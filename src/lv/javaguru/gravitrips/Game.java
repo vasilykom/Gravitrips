@@ -101,16 +101,12 @@ public class Game {
                 System.out.println();
                 System.out.print("Input Game Play option number: ");
                 inputNumber = Integer.parseInt(scanner.nextLine());
-                Set<Integer> set;
-                set = IntStream
-                        .range(1, 5)
-                        .boxed()
-                        .collect(Collectors.toSet());
 
-                if (set.contains(inputNumber)) {
+                if (inputNumber>=1&&inputNumber<=4) {
                     break;
                 }
             } catch (NumberFormatException e) {
+                System.out.println("\nInput number is wrong!");
             }
         }
         gameTypeNr = inputNumber;

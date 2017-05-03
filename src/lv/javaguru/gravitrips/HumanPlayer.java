@@ -22,22 +22,17 @@ public class HumanPlayer extends Player {
             Scanner scanner = new Scanner(System.in);
 
             try {
-
-
                 System.out.print("Player = " + getName() + ", please input the Nr. of the column: ");
                 numberOfColumnFromUser = Integer.parseInt(scanner.nextLine());
-                Set<Integer> setFilter;
-                setFilter = IntStream
-                        .range(1, 8)
-                        .boxed()
-                        .collect(Collectors.toSet());
+
                 if (!set.contains(numberOfColumnFromUser)) {
                     System.out.println("\nCoulumn Nr. " + numberOfColumnFromUser + " can not be used!!!");
                 }
-                if ((setFilter.contains(numberOfColumnFromUser) && (set.contains(numberOfColumnFromUser)))) {
+                if (((set.contains(numberOfColumnFromUser)))) {
                     break;
                 }
             } catch (NumberFormatException e) {
+                System.out.println("\nWrong ipnput number!");
             }
         }
         return numberOfColumnFromUser;
