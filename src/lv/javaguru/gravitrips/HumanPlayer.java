@@ -16,8 +16,9 @@ public class HumanPlayer extends Player {
     @Override
     public int move(Set set) {
         //System.out.println("Player = " + getName() + ", now it is your turn!");
-        int numberOfColumnFromUser;
-        while (true) {
+        int numberOfColumnFromUser = 0;
+        boolean playerChoosedValidColumnNumber=false;
+        while (!playerChoosedValidColumnNumber) {
             Scanner scanner = new Scanner(System.in);
 
             try {

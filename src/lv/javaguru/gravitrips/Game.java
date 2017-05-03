@@ -46,7 +46,7 @@ public class Game {
     void showGameSettingsMenu() {
         showGameGreeting();
         showGameModes();
-        getGamePlayOptionNumber();
+        sellectGamePlayOptionNumber();
         while (!playerChoosedGameType) {
             if (gameTypeNr == 1) {
                 proceedGameOption1();
@@ -93,7 +93,7 @@ public class Game {
         playerChoosedGameType = true;
     }
 
-    void getGamePlayOptionNumber() {
+    void sellectGamePlayOptionNumber() {
         Scanner scanner = new Scanner(System.in);
         int inputNumber;
         while (true) {
