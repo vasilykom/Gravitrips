@@ -10,7 +10,7 @@ public class Game {
     private Board board = new Board();
     private boolean gameOver;
     private int gameTypeNr;
-    private boolean playerChoosedGameType = false;
+    private boolean playerChoosedGameType;
     private Scanner scanner = new Scanner(System.in);
     private int inputNumber;
 
@@ -95,7 +95,7 @@ public class Game {
         boolean gameModeIsSelected=false;
         while (!gameModeIsSelected) {
             System.out.println();
-            System.out.print("Input the option number of Game Play: ");
+            System.out.print("Please, enter the Game Play mode: ");
             try {
                 inputNumber = Integer.parseInt(scanner.nextLine());
 
@@ -103,7 +103,7 @@ public class Game {
                     gameTypeNr = inputNumber;
                     gameModeIsSelected=true;
                 } else {
-                    System.out.println("Please select the correct Game mode");
+                    System.out.println("Please enter the correct Game mode");
                 }
 
             } catch (NumberFormatException e) {
@@ -113,7 +113,7 @@ public class Game {
     }
 
     void showGameModes() {
-
+        System.out.println("\nGame Play modes:\n");
         System.out.println("1-Player vs Computer");
         System.out.println("2-Computer vs Player");
         System.out.println("3-Player vs Player");
@@ -121,12 +121,11 @@ public class Game {
     }
 
     void showGameGreeting() {
-        System.out.println("************************");
-        System.out.println("*Welcome to GRAVITRIPS!*");
-        System.out.println("************************");
-        System.out.println("");
-        System.out.println("Select Game mode:");
-        System.out.println("");
+        System.out.println("**************************");
+        System.out.println("* Welcome to GRAVITRIPS! *");
+        System.out.println("**************************");
+
+
     }
 
     private void switchPlayer() {
