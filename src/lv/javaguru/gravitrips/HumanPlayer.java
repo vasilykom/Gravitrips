@@ -23,10 +23,10 @@ public class HumanPlayer extends Player {
                 System.out.print("Player = " + getName() + ", please input the Nr. of the column: ");
                 numberOfColumnFromUser = Integer.parseInt(scanner.nextLine());
 
-                if (!set.contains(numberOfColumnFromUser)&&numberOfColumnFromUser>=1&numberOfColumnFromUser<Board.getCOLUMNS()) {
+                if (!set.contains(numberOfColumnFromUser)&&numberOfColumnFromUser>=1&&numberOfColumnFromUser<=Board.getCOLUMNS()) {
                     System.out.println("\nCoulumn Nr. " + numberOfColumnFromUser + " can not be used!!!");
 
-                } else if (numberOfColumnFromUser<1||numberOfColumnFromUser>=Board.getCOLUMNS()){
+                } else if (numberOfColumnFromUser<1||numberOfColumnFromUser>Board.getCOLUMNS()){
                     System.out.println("Please, use column number from 1 to "+ (Board.getCOLUMNS())+"\n");
                 }
 
