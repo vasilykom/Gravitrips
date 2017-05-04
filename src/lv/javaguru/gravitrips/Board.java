@@ -4,8 +4,8 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Board {
-    public final static int ROWS = 7;
-    protected final static int COLUMNS = 7;
+    public final static int COLUMNS = 7;
+    private final static int ROWS = 7;
     private final int WIN = 4;
     private int userColumnNumber;
     private int rowAvailable;

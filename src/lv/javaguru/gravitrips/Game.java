@@ -1,9 +1,6 @@
 package lv.javaguru.gravitrips;
 
 import java.util.Scanner;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Game {
 
@@ -61,10 +58,10 @@ public class Game {
     }
 
     void proceedGameOption1() {
-        player1 = new HumanPlayer("X");
-        player2 = new AiPlayer("O");
         System.out.println("Game is started!");
         System.out.println("\n**** Player vs Computer ****");
+        player1 = new HumanPlayer("X");
+        player2 = new AiPlayer("O");
         playerChoosedGameType = true;
     }
 
@@ -99,7 +96,7 @@ public class Game {
         while (true) {
             try {
                 System.out.println();
-                System.out.print("Input Game Play option number: ");
+                System.out.print("Input the option number of Game Play: ");
                 inputNumber = Integer.parseInt(scanner.nextLine());
 
                 if (inputNumber>=1&&inputNumber<=4) {
