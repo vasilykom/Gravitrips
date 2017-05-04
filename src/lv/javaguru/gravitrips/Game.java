@@ -26,8 +26,8 @@ public class Game {
         board.resetBoardToNew();
         board.printBoardToConsole();
         board.makeNewListOfValidColumnNumbers();
-        while (!gameOver) {
 
+        while (!gameOver) {
             board.setSymbolOfPlayer();
             board.checkWhichRowIsAvailable(currentPlayer.move(board.createListOfValidColumns()));
             if (board.createListOfValidColumns().isEmpty()) {
