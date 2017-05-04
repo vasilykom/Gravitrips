@@ -13,7 +13,7 @@ public class AiPlayer extends Player {
     public int move(Set set) {
         int columnNumberFromAiPlayer;
         do{
-            columnNumberFromAiPlayer = ((int) (Math.random() * Board.COLUMNS)+1);
+            columnNumberFromAiPlayer = ((int) (Math.random() * Board.getCOLUMNS())+1);
         } while (!set.contains(columnNumberFromAiPlayer));
 
         System.out.println("Computer = "+ getName()+ ", number of column is:" + (columnNumberFromAiPlayer)+"\n");
