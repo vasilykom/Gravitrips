@@ -32,13 +32,16 @@ public class Game {
             board.checkWhichRowIsAvailable(currentPlayer.move(board.createListOfValidColumns()));
             if (board.createListOfValidColumns().isEmpty()) {
                 System.out.println("Nobody won!!! Please replay the Game!!!\n");
-                startGame();
+                gameOver=true;
             } else if (board.checkAllDiagonalsForWinner()) {
                 System.out.println("The winner is = " + currentPlayer.getName() + " !!!\n");
-                startGame();
+                gameOver=true;
             }
             switchPlayer();
         }
+        gameOver=false;
+        startGame();
+
     }
 
     void setUpGameGameMode() {
