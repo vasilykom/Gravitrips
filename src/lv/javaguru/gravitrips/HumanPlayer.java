@@ -14,7 +14,6 @@ public class HumanPlayer extends Player {
 
     @Override
     public int move(Set set) {
-        //System.out.println("Player = " + getName() + ", now it is your turn!");
         int numberOfColumnFromUser = 0;
         boolean playerChoosedValidColumnNumber=false;
         while (!playerChoosedValidColumnNumber) {
@@ -24,14 +23,18 @@ public class HumanPlayer extends Player {
                 System.out.print("Player = " + getName() + ", please input the Nr. of the column: ");
                 numberOfColumnFromUser = Integer.parseInt(scanner.nextLine());
 
-                if (!set.contains(numberOfColumnFromUser)) {
+                if (!set.contains(numberOfColumnFromUser)&&numberOfColumnFromUser>=1&numberOfColumnFromUser<Board.getCOLUMNS()) {
                     System.out.println("\nCoulumn Nr. " + numberOfColumnFromUser + " can not be used!!!");
+
+                } else if (numberOfColumnFromUser<1||numberOfColumnFromUser>=Board.getCOLUMNS()){
+                    System.out.println("Please, use column number from 1 to "+ (Board.getCOLUMNS())+"\n");
                 }
-                if (((set.contains(numberOfColumnFromUser)))) {
+
+                else if (set.contains(numberOfColumnFromUser)) {
                     break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("\nWrong ipnput number!");
+                System.out.println("\nWrong input value, please use numbers only!");
             }
         }
         return numberOfColumnFromUser;

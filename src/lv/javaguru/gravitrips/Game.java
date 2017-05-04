@@ -11,6 +11,9 @@ public class Game {
     private boolean gameOver;
     private int gameTypeNr;
     private boolean playerChoosedGameType = false;
+    private Scanner scanner = new Scanner(System.in);
+    private int inputNumber;
+
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -18,7 +21,7 @@ public class Game {
     }
 
     void startGame() {
-        showGameSettingsMenu();
+        setUpGameGameMode();
         currentPlayer = player1;
         board.resetBoardToNew();
         board.printBoardToConsole();
@@ -29,21 +32,20 @@ public class Game {
             board.checkWhichRowIsAvailable(currentPlayer.move(board.createListOfValidColumns()));
             if (board.createListOfValidColumns().isEmpty()) {
                 System.out.println("Nobody won!!! Please replay the Game!!!\n");
-                showGameSettingsMenu();
                 startGame();
             } else if (board.checkAllDiagonalsForWinner()) {
                 System.out.println("The winner is = " + currentPlayer.getName() + " !!!\n");
-                showGameSettingsMenu();
                 startGame();
             }
             switchPlayer();
         }
     }
 
-    void showGameSettingsMenu() {
+    void setUpGameGameMode() {
         showGameGreeting();
         showGameModes();
         sellectGamePlayOptionNumber();
+        playerChoosedGameType = false;
         while (!playerChoosedGameType) {
             if (gameTypeNr == 1) {
                 proceedGameOption1();
@@ -91,22 +93,23 @@ public class Game {
     }
 
     void sellectGamePlayOptionNumber() {
-        Scanner scanner = new Scanner(System.in);
-        int inputNumber;
         while (true) {
+            System.out.println();
+            System.out.print("Input the option number of Game Play: ");
             try {
-                System.out.println();
-                System.out.print("Input the option number of Game Play: ");
                 inputNumber = Integer.parseInt(scanner.nextLine());
 
-                if (inputNumber>=1&&inputNumber<=4) {
+                if (inputNumber >= 1 && inputNumber <= 4) {
+                    gameTypeNr = inputNumber;
                     break;
+                } else {
+                    System.out.println("Please select the correct Game mode");
                 }
+
             } catch (NumberFormatException e) {
                 System.out.println("\nInput number is wrong!");
             }
         }
-        gameTypeNr = inputNumber;
     }
 
     void showGameModes() {

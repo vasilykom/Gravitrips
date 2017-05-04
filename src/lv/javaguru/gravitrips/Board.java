@@ -9,7 +9,7 @@ public class Board {
     private final int WIN = 4;
     private int userColumnNumber;
     private int rowAvailable;
-    private String symbolOfPlayer
+    private String symbolOfPlayer;
     private int counter;
 
     private String[][] boardState = new String[ROWS][COLUMNS];
@@ -19,7 +19,7 @@ public class Board {
     }
 
 
-    protected void makeNewListOfValidColumnNumbers() {
+    public void makeNewListOfValidColumnNumbers() {
         for (int t = 1; t <= COLUMNS; t++) {
             numbersOfAvailableColumns.add(t);
         }
@@ -36,6 +36,7 @@ public class Board {
     }
 
     public void resetBoardToNew() {
+        this.counter=0;
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
                 if (i == 0) {
