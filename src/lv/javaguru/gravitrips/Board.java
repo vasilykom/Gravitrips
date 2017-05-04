@@ -47,8 +47,6 @@ public class Board {
                 }
             }
         }
-
-
     }
 
 
@@ -84,37 +82,35 @@ public class Board {
                 System.out.print(boardState[i][j] + " ");
             }
             System.out.println();
-
         }
-
     }
 
 
     boolean checkHorizontalLines() {
-        int counterHorizontal = 0;
         for (int m = 0; m < ROWS; m++) {
+            int counterHorizontal = 0;
             for (int n = 0; n < COLUMNS; n++) {
                 boolean symbolCheckHorizontal = boardState[m][n].equals(symbolOfPlayer);
                 if (symbolCheckHorizontal) {
                     counterHorizontal++;
+                    System.out.println("x"+m+"y"+n);
+                    System.out.println(counterHorizontal);
                 } else {
                     counterHorizontal = 0;
                 }
                 if (counterHorizontal == WIN) {
                     System.out.println("Hit in the Horizontal Line!");
                     return true;
-
                 }
             }
-
         }
         return false;
     }
 
     boolean checkVerticalLines() {
 
-        int counterVertical = 0;
         for (int m = 0; m < ROWS; m++) {
+            int counterVertical = 0;
             for (int n = 0; n < COLUMNS; n++) {
                 boolean symbolCheckVertical = boardState[n][m].equals(symbolOfPlayer);
                 if (symbolCheckVertical) {
