@@ -4,16 +4,20 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Board {
-    public final static int COLUMNS = 7;
+    private final static int COLUMNS = 7;
     private final static int ROWS = 7;
     private final int WIN = 4;
     private int userColumnNumber;
     private int rowAvailable;
-    private String symbolOfPlayer;
+    private String symbolOfPlayer
     private int counter;
 
     private String[][] boardState = new String[ROWS][COLUMNS];
     private Set<Integer> numbersOfAvailableColumns = new LinkedHashSet<>();
+    public static int getCOLUMNS() {
+        return COLUMNS;
+    }
+
 
     protected void makeNewListOfValidColumnNumbers() {
         for (int t = 1; t <= COLUMNS; t++) {
