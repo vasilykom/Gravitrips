@@ -11,9 +11,9 @@ public class Game {
     private Player player2;
     private Player currentPlayer;
     private Board board = new Board();
-     boolean gameOver;
+    private boolean gameOver;
     private int gameTypeNr;
-    boolean playerChoosedGameType = false;
+    private boolean playerChoosedGameType = false;
 
     public static void main(String[] args) {
         Game game = new Game();
