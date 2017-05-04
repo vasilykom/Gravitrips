@@ -93,8 +93,6 @@ public class Board {
                 boolean symbolCheckHorizontal = boardState[m][n].equals(symbolOfPlayer);
                 if (symbolCheckHorizontal) {
                     counterHorizontal++;
-                    System.out.println("x"+m+"y"+n);
-                    System.out.println(counterHorizontal);
                 } else {
                     counterHorizontal = 0;
                 }
