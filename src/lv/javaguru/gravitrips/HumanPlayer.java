@@ -14,30 +14,30 @@ public class HumanPlayer extends Player {
 
     @Override
     public int move(Set set) {
-        int numberOfColumnFromUser = 0;
+        int numberOfColumnPlayer = 0;
         boolean playerChoosedValidColumnNumber=false;
         while (!playerChoosedValidColumnNumber) {
             Scanner scanner = new Scanner(System.in);
 
             try {
                 System.out.print("Player = " + getName() + ", please input the Nr. of the column: ");
-                numberOfColumnFromUser = Integer.parseInt(scanner.nextLine());
+                numberOfColumnPlayer = Integer.parseInt(scanner.nextLine());
 
-                if (!set.contains(numberOfColumnFromUser)&&numberOfColumnFromUser>=1&&numberOfColumnFromUser<=Board.getCOLUMNS()) {
-                    System.out.println("\nCoulumn Nr. " + numberOfColumnFromUser + " can not be used!!!");
+                if (!set.contains(numberOfColumnPlayer)&&numberOfColumnPlayer>=1&&numberOfColumnPlayer<=Board.getCOLUMNS()) {
+                    System.out.println("\nCoulumn Nr. " + numberOfColumnPlayer + " can not be used!!!");
 
-                } else if (numberOfColumnFromUser<1||numberOfColumnFromUser>Board.getCOLUMNS()){
+                } else if (numberOfColumnPlayer<1||numberOfColumnPlayer>Board.getCOLUMNS()){
                     System.out.println("Please, use column number from 1 to "+ (Board.getCOLUMNS())+"\n");
                 }
 
-                else if (set.contains(numberOfColumnFromUser)) {
-                    break;
+                else if (set.contains(numberOfColumnPlayer)) {
+                    playerChoosedValidColumnNumber=true;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("\nWrong input value, please use numbers only!");
             }
         }
-        return numberOfColumnFromUser;
+        return numberOfColumnPlayer;
     }
 }
 

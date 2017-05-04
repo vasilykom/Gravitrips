@@ -44,7 +44,7 @@ public class Game {
     void setUpGameGameMode() {
         showGameGreeting();
         showGameModes();
-        sellectGamePlayOptionNumber();
+        validateGamePlayOptionNumber();
         playerChoosedGameType = false;
         while (!playerChoosedGameType) {
             if (gameTypeNr == 1) {
@@ -80,7 +80,6 @@ public class Game {
         System.out.println("\n**** Player vs Player ****");
         player1 = new HumanPlayer("X");
         player2 = new HumanPlayer("O");
-
         playerChoosedGameType = true;
     }
 
@@ -92,8 +91,9 @@ public class Game {
         playerChoosedGameType = true;
     }
 
-    void sellectGamePlayOptionNumber() {
-        while (true) {
+    void validateGamePlayOptionNumber() {
+        boolean gameModeIsSelected=false;
+        while (!gameModeIsSelected) {
             System.out.println();
             System.out.print("Input the option number of Game Play: ");
             try {
@@ -101,7 +101,7 @@ public class Game {
 
                 if (inputNumber >= 1 && inputNumber <= 4) {
                     gameTypeNr = inputNumber;
-                    break;
+                    gameModeIsSelected=true;
                 } else {
                     System.out.println("Please select the correct Game mode");
                 }
