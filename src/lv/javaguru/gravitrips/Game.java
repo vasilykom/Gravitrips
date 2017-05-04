@@ -119,6 +119,7 @@ public class Game {
 
     public void checkIfPlayerWantToQuitGame(String q) {
         if (!Character.isDigit(q.charAt(0))) {
+            scanner.close();
             System.exit(0);
         }
     }
