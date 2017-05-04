@@ -16,12 +16,12 @@ public class HumanPlayer extends Player {
     public int move(Set set) {
         int numberOfColumnPlayer = 0;
         boolean playerChoosedValidColumnNumber=false;
+        Scanner scanner = new Scanner(System.in);
         while (!playerChoosedValidColumnNumber) {
-            Scanner scanner = new Scanner(System.in);
-
             try {
                 System.out.print("Player = " + getName() + ", please input the Nr. of the column: ");
-                numberOfColumnPlayer = Integer.parseInt(scanner.nextLine());
+                String q=scanner.nextLine();
+                numberOfColumnPlayer = Integer.parseInt(q);
 
                 if (!set.contains(numberOfColumnPlayer)&&numberOfColumnPlayer>=1&&numberOfColumnPlayer<=Board.getCOLUMNS()) {
                     System.out.println("\nCoulumn Nr. " + numberOfColumnPlayer + " can not be used!!!");
@@ -39,5 +39,6 @@ public class HumanPlayer extends Player {
         }
         return numberOfColumnPlayer;
     }
+
 }
 

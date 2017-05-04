@@ -92,16 +92,21 @@ public class Game {
     }
 
     void validateGamePlayOptionNumber() {
-        boolean gameModeIsSelected=false;
+        boolean gameModeIsSelected = false;
         while (!gameModeIsSelected) {
             System.out.println();
-            System.out.print("Please, enter the Game Play mode: ");
-            try {
-                inputNumber = Integer.parseInt(scanner.nextLine());
+            System.out.println("( To quit the Game enter: q)");
+            System.out.print("Please, enter the Game Play mode number:");
 
+            String q = scanner.nextLine();
+            checkIfPlayerWantToQuitGame(q);
+
+            try {
+
+                inputNumber = Integer.parseInt(q);
                 if (inputNumber >= 1 && inputNumber <= 4) {
                     gameTypeNr = inputNumber;
-                    gameModeIsSelected=true;
+                    gameModeIsSelected = true;
                 } else {
                     System.out.println("Please enter the correct Game mode");
                 }
@@ -109,6 +114,12 @@ public class Game {
             } catch (NumberFormatException e) {
                 System.out.println("\nInput number is wrong!");
             }
+        }
+    }
+
+    public void checkIfPlayerWantToQuitGame(String q) {
+        if (!Character.isDigit(q.charAt(0))) {
+            System.exit(0);
         }
     }
 
@@ -135,6 +146,5 @@ public class Game {
             currentPlayer = player1;
         }
     }
-
 
 }
